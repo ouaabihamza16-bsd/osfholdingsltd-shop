@@ -1,0 +1,108 @@
+/* OSF Holdings Ltd: small additions to Tailwind */
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Keep anchored sections clear of the sticky header */
+section[id],
+main[id] {
+  scroll-margin-top: 5rem;
+}
+
+main:focus {
+  outline: none;
+}
+
+/* Visible keyboard focus everywhere */
+a:focus-visible,
+button:focus-visible,
+[tabindex]:not([tabindex="-1"]):focus-visible {
+  outline: 3px solid #C8963E;
+  outline-offset: 3px;
+}
+
+/* Hero background */
+.hero-bg {
+  background-color: #14202E;
+  background-image:
+    radial-gradient(ellipse at 85% 15%, rgba(200, 150, 62, 0.16), transparent 55%),
+    linear-gradient(135deg, #14202E 0%, #1F3A5F 60%, #172A44 100%);
+}
+
+/* Bullet ticks in service cards */
+.tick {
+  flex-shrink: 0;
+  width: 1.125rem;
+  height: 1.125rem;
+  margin-top: 0.15rem;
+  border-radius: 9999px;
+  background: #1F3A5F url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2l2.2 2.2 4.8-5' fill='none' stroke='%23C8963E' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 100% no-repeat;
+}
+
+.service-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px -12px rgba(20, 32, 46, 0.25);
+}
+
+/* Legal dialogs */
+.legal-dialog {
+  width: calc(100% - 2rem);
+  max-width: 42rem;
+  padding: 0;
+  border: 0;
+  border-radius: 1rem;
+  background: #FFFFFF;
+  color: #14202E;
+  box-shadow: 0 24px 60px -20px rgba(20, 32, 46, 0.5);
+}
+
+.legal-dialog::backdrop {
+  background: rgba(20, 32, 46, 0.7);
+}
+
+.legal-body h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.4rem;
+  font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #1F3A5F;
+}
+
+.legal-body p + p {
+  margin-top: 0.75rem;
+}
+
+.legal-body ul {
+  margin: 0.75rem 0;
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+
+.legal-body li + li {
+  margin-top: 0.35rem;
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .service-card:hover {
+    transform: none;
+  }
+}
